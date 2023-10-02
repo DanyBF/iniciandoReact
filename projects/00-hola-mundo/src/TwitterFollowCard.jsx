@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-export function TwitterFollowCard ({userName, name, isFollowing}) {
+export function TwitterFollowCard ({userName, children, isFollowing}) {
   return(
     <article className='tw-followCard'>
     <header className='tw-followCard-header' >
@@ -9,7 +9,7 @@ export function TwitterFollowCard ({userName, name, isFollowing}) {
       alt='Avatar de midudev'
       src={`https://unavatar.io/${userName}`}/>
       <div className='tw-followCard-info'>
-        <strong>{name}</strong>
+        <strong>{children}</strong>
         <span className='tw-followCard-infoUserName'>@{userName}</span>
       </div>
     </header>
@@ -21,4 +21,4 @@ export function TwitterFollowCard ({userName, name, isFollowing}) {
     </aside>
    </article>
   )
-}
+} 
