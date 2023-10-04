@@ -5,15 +5,15 @@ export function App() {
   return (
     <section className="App">
 
-    <TwitterFollowCard isFollowing userName='midudev'>
+    <TwitterFollowCard userName='midudev'>
       Miguel Angel Duran
     </TwitterFollowCard>
 
-    <TwitterFollowCard isFollowing={false} userName='danybf'>
+    <TwitterFollowCard userName='danybf'>
       Daniela Belen Fernandez
     </TwitterFollowCard>
     
-    <TwitterFollowCard isFollowing userName='zahifernandez_' >
+    <TwitterFollowCard userName='zahifernandez_' >
       Zahira Fernandez
     </TwitterFollowCard>
    </section>
