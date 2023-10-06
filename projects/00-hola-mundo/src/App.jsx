@@ -1,21 +1,43 @@
 /* eslint-disable no-unused-vars */
+import { useState } from 'react'
 import './app.css'
 import { TwitterFollowCard } from './TwitterFollowCard.jsx'
+
+
+const users = [
+  {
+    userName:'midudev',
+    name:'Miguel Angel Duran',
+    isFollowing:true
+  },
+  {
+    userName:'danybf',
+    name:'Daniela Belen Fernandez',
+    isFollowing:true
+  },
+  {
+    userName:'zahifernandez_',
+    name:'Zahira Fernandez',
+    isFollowing:false
+  }
+]
+
 export function App() {
   return (
     <section className="App">
-
-    <TwitterFollowCard userName='midudev'>
-      Miguel Angel Duran
-    </TwitterFollowCard>
-
-    <TwitterFollowCard userName='danybf'>
-      Daniela Belen Fernandez
-    </TwitterFollowCard>
-    
-    <TwitterFollowCard userName='zahifernandez_' >
-      Zahira Fernandez
-    </TwitterFollowCard>
+      {
+        users.map(user =>{
+          const {userName, name, isFollowing} = user
+          return(
+            <TwitterFollowCard
+            key={userName}
+            userName={userName}
+            initialIsFollowing={isFollowing}>
+              {name}
+            </TwitterFollowCard>
+          )
+        })
+      }
    </section>
   )
 } 
