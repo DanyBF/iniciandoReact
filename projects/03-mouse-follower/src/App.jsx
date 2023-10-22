@@ -18,6 +18,9 @@ function App () {
     if (enabled) {
       window.addEventListener('pointermove', handleMove)
     }
+    return () => {
+      window.removeEventListener('pointermove', handleMove)
+    }
 
   }, [enabled])
 
@@ -27,12 +30,13 @@ function App () {
     <main>
       <div style={{
         position: 'absolute',
-        background: '#09f',
+        background: 'rgba(0,0,0,0.5',
+        border: '1px solid #fff',
         borderRadius: '50%',
         opacity: 0.8,
         pointerEvents: 'none',
-        left: -20,
-        top: -20,
+        left: -15,
+        top: -15,
         width: 20,
         height: 20,
         transform: `translate(${position.x}px, ${position.y}px)`
