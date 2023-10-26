@@ -10,7 +10,9 @@ import { saveGameToStorage, resetGameStorage } from './logic/index.js'
 function App() {
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board')
-    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null)
+    return boardFromStorage
+      ? JSON.parse(boardFromStorage)
+      : Array(36).fill(null)
   })
 
   const [turn, setTurn] = useState(() => {
@@ -20,7 +22,7 @@ function App() {
   const [winner, setWinner] = useState(null)
 
   const resetGame = () => {
-    setBoard(Array(9).fill(null))
+    setBoard(Array(36).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
 
