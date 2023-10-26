@@ -17,13 +17,13 @@ function App() {
 
   const [turn, setTurn] = useState(() => {
     const turnFromStorage = window.localStorage.getItem('turn')
-    return turnFromStorage ?? TURNS.X
+    return turnFromStorage ?? TURNS.Red
   })
   const [winner, setWinner] = useState(null)
 
   const resetGame = () => {
     setBoard(Array(36).fill(null))
-    setTurn(TURNS.X)
+    setTurn(TURNS.Red)
     setWinner(null)
 
     resetGameStorage()
@@ -36,7 +36,7 @@ function App() {
     newBoard[index] = turn
     setBoard(newBoard)
 
-    const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
+    const newTurn = turn === TURNS.Red ? TURNS.Blue : TURNS.Red
     setTurn(newTurn)
     //guardar aqui partida
     saveGameToStorage({
@@ -55,7 +55,7 @@ function App() {
 
   return (
     <main className='board'>
-      <h1>Tic Tac Toe</h1>
+      <h1>Cuatro en Linea</h1>
       <button onClick={resetGame}>Reset del juego</button>
       <section className='game'>
         {board.map((square, index) => {
@@ -68,8 +68,8 @@ function App() {
       </section>
 
       <section className='turn'>
-        <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
-        <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
+        <Square isSelected={turn === TURNS.Red}>{TURNS.Red}</Square>
+        <Square isSelected={turn === TURNS.Blue}>{TURNS.Blue}</Square>
       </section>
 
       <WinnerModal resetGame={resetGame} winner={winner} />
